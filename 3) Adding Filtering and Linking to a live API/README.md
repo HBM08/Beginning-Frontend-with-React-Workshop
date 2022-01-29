@@ -25,7 +25,7 @@ using *http://localhost:3001/results?q=MyQuery* provides a filtered result
 
 ## Axios
 
-Axios is a promise based library for AJAX requests. React being just a view library it does it built in (like Angular)
+Axios is a promise based library for AJAX requests. React being just a view library it doesn't have it built in (like Angular)
 Let's install axios
 
 ```bash
@@ -34,9 +34,11 @@ npm install axios --save
 
 ### Using Axios
 
-Create a Get function either in a separate helper file or above our class component. This function has the role to take a query parameter and return a promise containing our contacts data.
+Create a Get function either in a separate helper file or above our class component. This function has the role to take a query parameter and return a promise containing our contacts data. Checkout this example: https://axios-http.com/docs/example
 
 ```javascript
+import axios from 'axios';
+
 function getContacts(query = "") {
     // Use axios.get to trigger a get request
     // parse response to get the data and return it

@@ -95,26 +95,46 @@ import ContactCard from './components/ContactCard/ContactCard';
 ```
 
 Ok, our component renders on screen now, but it's not really configurable. That's the role of props.
+#### Props Usage
+Now, our component is out and rendering, but we can't really do anything with it (except render the same thing over and over again, that's ok too). Let's try to make it a bit more dynamic.
+As you might notice our ContactCard function has a paramenter **props**, this will contain all the properties that the
+current component will receive from its parent. 
+Now let's pressume that our component will have to dynamically showcase a **name** attribute received through props, this is how the code should look like to make that happen:
+
+```javascript
+import React from 'react';
+
+const ContactCard = (props) => {
+    const { name } = props;
+
+    return <div>
+        {name}
+    </div>
+}
+
+export default ContactCard;
+```
+
+We've used spread operator here to get the **name** property out of **props** and then we pass it to the JSX via **{}**
 
 #### Define the props in PropTypes
-Now that our component is out and rendering, but we can't really do anything with it (except render the same thing over and over again, that's ok too)
+
+You can define an interface for the props that your component should receive by using **PropTypes**.
 
 [How to use PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) <- detailed explantion
 
-Esentially you define an interface for the props of your component.
 
 ```javascript
 import PropTypes from 'prop-types';
 
 ContactCard.propTypes = {
-  prop1: PropTypes.string.isRequired,
-  prop2: PropTypes.number
+  name: PropTypes.string.isRequired,
 }
 ```
 
 Proptypes is an interface like component that attaches to the Class and it gives you hints if you forgot something that is required or if you expect a different type.
 
-We need to define the Contact Card of a person, so we should define at least the following: 
+We need to define the Contact Card of a person, so we should define at least the following as props: 
 * firstName
 * lastName
 * age

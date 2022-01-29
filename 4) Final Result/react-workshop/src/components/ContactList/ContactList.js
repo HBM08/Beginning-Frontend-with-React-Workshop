@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import debounce from 'lodash.debounce';
 
 import ContactCard from '../ContactCard/ContactCard';
 import SearchBar from '../SearchBar/SearchBar';
@@ -9,8 +8,8 @@ import './ContactList.css';
 
 function getContacts(query = "") {
     return axios.get(`http://localhost:3001/results?q=${query}`)
-        .then((request) => {
-            return request.data;
+        .then((response) => {
+            return response.data;
         }, (error) => console.error(error));
 }
 

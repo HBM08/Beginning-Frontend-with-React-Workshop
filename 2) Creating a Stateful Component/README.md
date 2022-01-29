@@ -76,7 +76,7 @@ We can set our query from the state into the filterText prop (the text we are se
 Let's create a handleSearch function that takes a string parameter and sets the new state
 
 ```javascript
-handleSearch = (searchTerm) => {
+const handleSearch = (searchTerm) => {
     // here we need to set the state with our new searchTerm
 }
 ```
@@ -90,15 +90,16 @@ It now works because we are keeping the *state* of the query in the ContactList 
 We need to parse the given list and render a contact card for each element of the list. We need to create a function that takes as input the contacts list and returns a list of JSX elements.
 
 ```javascript
-renderContacts = (contacts) => {
+const renderContacts = (contacts) => {
     // map all contacts to a JSX element something like this:
     // contacts.map(contact => <ContactCard *props go here* />)
 }
 ```
 
-And now we can test out our function the render function like this:
+And now we can test out our function inside the render function like this:
 
 ```javascript
+// add this below SearchBar component
 {this.renderContacts(this.state.contacts)}
 ```
 
